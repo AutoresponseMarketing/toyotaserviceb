@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certified Logbook Servicing - Auto Response</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+html {
+  scroll-behavior: smooth;
+}
+.site-logo {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navbar */
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+  border-bottom: 1px solid #2a2a2a;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  animation: fadeDown 0.5s ease-in-out;
+}
+
+/* Subtle fade-in on page load */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar:hover,
+.navbar:focus-within {
+  box-shadow: 0 0 18px rgba(249, 115, 22, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+  color: #f97316;
+  text-shadow: 0 0 6px rgba(249, 115, 22, 0.3);
+}
+
+.nav-cta {
+  background: linear-gradient(45deg, #f97316, #ea580c);
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5), 0 0 10px rgba(249, 115, 22, 0.3);
+}
+        /* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-container {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  background-size: 400% 400%;
+  animation: pulseGradient 15s ease infinite;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.03;
+  animation: moveDots 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+@keyframes pulseGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            background: linear-gradient(45deg, #f97316, #ea580c);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Video placeholder */
+        .video-demo {
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-placeholder {
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: #f97316;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        /* Benefits Section */
+.benefits {
+  padding: 4rem 0;
+  background-image: url('image.JPG');
+  background-size: cover;
+  background-position: center 59%; /* move image up */
+  background-repeat: no-repeat;
+  background-color: #fcb69f;
+  color: white;
+  position: relative;
+}
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .benefits h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #blue;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Fix for benefit item descriptions - make them grey */
+        .benefit-item p {
+            color: #666;
+        }
+
+        /* What's Included Section */
+        .included {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .included-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .included h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-item h3::before {
+            content: '✔️';
+            font-size: 1.2rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .comparison h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .old-way {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .new-way {
+            border-left: 5px solid #27ae60;
+            background: linear-gradient(135deg, #f8fff8, #e8f5e8);
+        }
+
+        .comparison-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .old-way h3 {
+            color: #e74c3c;
+        }
+
+        .new-way h3 {
+            color: #27ae60;
+        }
+
+        .comparison-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .comparison-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .old-way .comparison-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .new-way .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .testimonials-scroll-container {
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .testimonials-scroll-container::before,
+        .testimonials-scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .testimonials-scroll-container::before {
+            left: 0;
+            background: linear-gradient(to right, #f8f9fa, transparent);
+        }
+
+        .testimonials-scroll-container::after {
+            right: 0;
+            background: linear-gradient(to left, #f8f9fa, transparent);
+        }
+
+        .testimonials-scroll {
+            display: flex;
+            gap: 2rem;
+            animation: scroll-testimonials 30s linear infinite;
+            width: fit-content;
+        }
+
+        .testimonials-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-image {
+            flex-shrink: 0;
+            width: 400px;
+            height: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-image:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        @keyframes scroll-testimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .how-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-item {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #1e40af, #1e3a8a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step-item h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+}
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .popular {
+            border: 3px solid #f97316;
+            transform: scale(1.05);
+        }
+
+        .popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f97316;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .pricing-cta {
+            background: linear-gradient(45deg, #1e40af, #1e3a8a);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            padding: 1.5rem;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .final-cta-button {
+            background: linear-gradient(45deg, #f97316, #ea580c);
+            color: white;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f97316;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f97316;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popular {
+                transform: none;
+            }
+
+            .testimonial-image {
+                width: 300px;
+            }
+
+            .testimonials-scroll-container::before,
+            .testimonials-scroll-container::after {
+                width: 50px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+<style>
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ===== Footer styles ===== */
+  .site-footer {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    padding: 60px 20px 30px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: space-between;
+  }
+
+  .footer-col {
+    flex: 1 1 220px;
+    min-width: 220px;
+  }
+
+  .footer-col h3 {
+    margin-bottom: 16px;
+    font-size: 1.2em;
+    color: #ffffff;
+  }
+
+  .footer-col p,
+  .footer-col li,
+  .footer-col a {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #ccc;
+    text-decoration: none;
+  }
+
+  .footer-col a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .footer-links,
+  .footer-hours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-social-label {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+  }
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+ .benefits {
+    padding: 2rem 1rem;
+    background-position: center 40%;
+  }
+
+  .benefits h2 {
+    font-size: 1.8rem;
+  }
+
+  .benefit-item {
+    padding: 1.5rem;
+  }
+
+  .benefit-icon {
+    font-size: 2rem;
+  }
+
+  .benefit-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .benefit-item p {
+    font-size: 1rem;
+  }
+
+ .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-item {
+    padding: 1.5rem;
+  }
+
+  .service-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-item p {
+    font-size: 1rem;
+  }
+
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="Auto Response Logo" class="site-logo" />
+    </a>
+    <button class="hamburger" aria-label="Toggle menu">
+      ☰
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+       <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="https://autoresponse.autobookingsonline.com.au/" target="_blank" class="nav-cta">
+          Book Now
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <h1>Want Warranty-Safe Toyota Servicing Without Dealer Costs?</h1>
+    <p>Toyota-trained specialists using genuine or OEM parts for your logbook and general servicing in Perth.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px;">
+  <a href="https://autoresponse.autobookingsonline.com.au/" target="_blank" class="hero-cta">
+    Book Your Service Now
+  </a>
+  <a href="tel:(08)92502266" class="hero-cta" style="background-color: #28a745;">
+    📞 Call Auto Response
+  </a>
+</div>
+
+    <!-- Move video INSIDE hero-container to keep blue background -->
+    <div class="video-demo" style="max-width: 600px; margin: 3rem auto;">
+      <iframe
+        width="100%"
+        height="340"
+        src="https://www.youtube.com/embed/3m1b7NDMBW0"
+        title="Toyota Specialist Servicing"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
+      ></iframe>
+    </div>
+  </div>
+</section>
+<!-- Benefits Section -->
+<section class="benefits" style="background-color: #003366; color: white; padding: 3rem 1rem;">
+  <div class="benefits-container" style="max-width: 1200px; margin: 0 auto;">
+
+    <div style="
+      background: rgba(0, 51, 102, 0.85);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    ">
+      <h2 style="margin-bottom: 0.5rem;">🚘 Why Choose a Toyota Specialist Instead of the Dealership?</h2>
+      <p style="margin: 0;">
+        Dealerships charge a premium for the Toyota name.<br />
+        We charge for quality work – that’s it.
+      </p>
+    </div>
+
+    <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+      <div class="benefit-item" style="text-align: center;">
+        <div class="benefit-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧰</div>
+        <h3>Toyota-Specific Servicing Protocols</h3>
+        <p>We follow the same standards Toyota uses – without the dealership markup.</p>
+      </div>
+      <div class="benefit-item" style="text-align: center;">
+        <div class="benefit-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔩</div>
+        <h3>Genuine or OEM-Approved Parts</h3>
+        <p>Your Toyota deserves high-quality parts – we never cut corners.</p>
+      </div>
+      <div class="benefit-item" style="text-align: center;">
+        <div class="benefit-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">📘</div>
+        <h3>Warranty-Compliant Logbook Servicing</h3>
+        <p>All work meets manufacturer guidelines, keeping your warranty intact.</p>
+      </div>
+      <div class="benefit-item" style="text-align: center;">
+        <div class="benefit-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧑‍🔧</div>
+        <h3>Technicians with Toyota Experience</h3>
+        <p>Our team understands Toyotas inside and out.</p>
+      </div>
+      <div class="benefit-item" style="text-align: center;">
+        <div class="benefit-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
+        <h3>Fair Pricing, No Upsells</h3>
+        <p>We focus on honest service – no hidden fees, no pressure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- What's Included Section -->
+    <section class="included" id="services">
+        <div class="included-container">
+            <h2>What's Included in Your Toyota Service</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Engine Oil & Filter Replacement</h3>
+                    <p>Keeps your engine running smoothly and efficiently with fresh oil and a clean filter.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Brake Inspection & Report</h3>
+                    <p>Ensures your vehicle's most critical safety system is in peak condition.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Tyre Condition & Pressure Check</h3>
+                    <p>Maximises tyre life, fuel efficiency, and driving safety.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Fluid Top-Ups</h3>
+                    <p>We check and top up all essential fluids — coolant, brake, transmission, and more.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Battery, Lights & Wipers Check</h3>
+                    <p>Stay safe in any weather with a reliable battery, clear visibility, and working lights.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Air & Cabin Filter Replacement</h3>
+                    <p>Breathe clean — we inspect and replace filters for engine and in-cabin air quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- Social Proof -->
+    <section class="social-proof" id="testimonials">
+        <div class="social-proof-container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-scroll-container">
+                <div class="testimonials-scroll">
+                    <div class="testimonial-image">
+                        <img src="R1.PNG" alt="Customer Review from Tracey Casley" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R2.PNG" alt="Customer Review from Leanne Brierley" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R3.PNG" alt="Customer Review from Ricki Williams" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R4.PNG" alt="Customer Review from Theresa Andoniou" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R5.PNG" alt="Customer Review from Marsha Radich" />
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="testimonial-image">
+                        <img src="R1.PNG" alt="Customer Review from Tracey Casley" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R2.PNG" alt="Customer Review from Leanne Brierley" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R3.PNG" alt="Customer Review from Ricki Williams" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R4.PNG" alt="Customer Review from Theresa Andoniou" />
+                    </div>
+                    <div class="testimonial-image">
+                        <img src="R5.PNG" alt="Customer Review from Marsha Radich" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Book Online in 60 Seconds</h3>
+                    <p>Choose your service type and preferred time.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Drop Off Your Vehicle</h3>
+                    <p>Our local workshop in Stratton is fully equipped and comfortable.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Drive Away With Confidence</h3>
+                    <p>We stamp your logbook and keep your warranty intact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Pricing -->
+<div class="pricing-grid">
+  <div class="pricing-card popular">
+    <h3>Complete Logbook Service</h3>
+    <div class="price">Starting from $280</div>
+    <div class="price-period">All Vehicle Types</div>
+    <ul class="features-list">
+      <li>Engine Oil & Filter Replacement</li>
+      <li>Brake Inspection & Report</li>
+      <li>Tyre Condition & Pressure Check</li>
+      <li>Fluid Top-Ups</li>
+      <li>Battery, Lights & Wipers Check</li>
+      <li>Air & Cabin Filter Replacement</li>
+      <li>Comprehensive Safety Inspection</li>
+      <li>Full Diagnostic Scan</li>
+      <li>Warranty-Safe Logbook Stamping</li>
+      <li>Transparent Reporting</li>
+    </ul>
+    <a href="https://autoresponse.autobookingsonline.com.au/" target="_blank" class="pricing-cta">Book Now</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>About Auto Response</h3>
+      <p>
+        The team at Auto Response provide quality servicing &amp; repairs and exceptional customer service at an affordable price.
+        We strive to gain our customer's trust, respect and exceed their expectations. We go that extra mile for you and your car!
+      </p>
+ 
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#">Book an Appointment</a></li>
+        <li><a href="#">Get an Estimate</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Business Hours</h3>
+      <ul class="footer-hours">
+        <li><strong>Monday:</strong> Closed</li>
+        <li><strong>Tuesday:</strong> 07:30 AM – 05:30 PM</li>
+        <li><strong>Wednesday:</strong> 07:30 AM – 05:30 PM</li>
+        <li><strong>Thursday:</strong> 07:30 AM – 05:30 PM</li>
+        <li><strong>Friday:</strong> 07:30 AM – 05:30 PM</li>
+        <li><strong>Saturday:</strong> Closed</li>
+        <li><strong>Sunday:</strong> Closed</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p><strong>Address:</strong><br>177 O’Connor Road, Stratton, Western Australia</p>
+      <p><strong>Phone:</strong><br><a href="tel:0892502266">(08) 9250 2266</a></p>
+      <p><strong>Email:</strong><br><a href="mailto:info@autoresponse.com.au">info@autoresponse.com.au</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Auto Response. All rights reserved.
+  </div>
+    <footer id="contact">
+</footer>
+<!-- Hamburger Script (put just before </body>) -->
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
